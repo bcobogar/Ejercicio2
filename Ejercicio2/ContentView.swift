@@ -34,12 +34,25 @@ struct ContentView: View {
                 
                 Section {
                     Button(action: {
-                        print("Pulsado el botón de enviar")
+                        viewModel.guardarEnNube()
                     }) {
-                        Text("Enviar solicitud")
-                            .bold()
+                        if viewModel.estaEnviando{
+                            Text("Enviando")
+                        }else{
+                            Text("Enviar solicitud")
+                        }
                     }
-                    .disabled(viewModel.isFormValid == false)
+                    .disabled(viewModel.isFormValid == false || viewModel.estaEnviando == true)
+                }
+                if let error = viewModel.mensajeError{
+                    Section{
+                        Text(error).foregroundColor(.red)
+                    }
+                }
+                if viewModel.envioExitoso{
+                    Section{
+                        Text("corrrectoo").foregroundColor(.green)
+                    }
                 }
             }
             .navigationTitle("Nuevo Registro")
