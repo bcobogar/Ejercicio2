@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9D84BDE12F98D8AF00D74845 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84BDE02F98D8AF00D74845 /* Auth */; };
+		9D84BDE32F98D8B300D74845 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84BDE22F98D8B300D74845 /* Functions */; };
+		9D84BDE52F98D8B700D74845 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84BDE42F98D8B700D74845 /* PostgREST */; };
+		9D84BDE72F98D8BC00D74845 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84BDE62F98D8BC00D74845 /* Realtime */; };
+		9D84BDE92F98D8BF00D74845 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84BDE82F98D8BF00D74845 /* Storage */; };
+		9D84BDEB2F98D8C300D74845 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9D84BDEA2F98D8C300D74845 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9D37E71D2F97BF0F00AF5CFF /* Ejercicio2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ejercicio2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +32,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D84BDE52F98D8B700D74845 /* PostgREST in Frameworks */,
+				9D84BDE32F98D8B300D74845 /* Functions in Frameworks */,
+				9D84BDEB2F98D8C300D74845 /* Supabase in Frameworks */,
+				9D84BDE12F98D8AF00D74845 /* Auth in Frameworks */,
+				9D84BDE92F98D8BF00D74845 /* Storage in Frameworks */,
+				9D84BDE72F98D8BC00D74845 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				9D37E71F2F97BF0F00AF5CFF /* Ejercicio2 */,
+				9D84BDDF2F98D89E00D74845 /* Frameworks */,
 				9D37E71E2F97BF0F00AF5CFF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +59,13 @@
 				9D37E71D2F97BF0F00AF5CFF /* Ejercicio2.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D84BDDF2F98D89E00D74845 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +88,12 @@
 			);
 			name = Ejercicio2;
 			packageProductDependencies = (
+				9D84BDE02F98D8AF00D74845 /* Auth */,
+				9D84BDE22F98D8B300D74845 /* Functions */,
+				9D84BDE42F98D8B700D74845 /* PostgREST */,
+				9D84BDE62F98D8BC00D74845 /* Realtime */,
+				9D84BDE82F98D8BF00D74845 /* Storage */,
+				9D84BDEA2F98D8C300D74845 /* Supabase */,
 			);
 			productName = Ejercicio2;
 			productReference = 9D37E71D2F97BF0F00AF5CFF /* Ejercicio2.app */;
@@ -94,6 +123,9 @@
 			);
 			mainGroup = 9D37E7142F97BF0F00AF5CFF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9D37E71E2F97BF0F00AF5CFF /* Products */;
 			projectDirPath = "";
@@ -328,6 +360,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D84BDE02F98D8AF00D74845 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		9D84BDE22F98D8B300D74845 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		9D84BDE42F98D8B700D74845 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		9D84BDE62F98D8BC00D74845 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		9D84BDE82F98D8BF00D74845 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		9D84BDEA2F98D8C300D74845 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D84BDDE2F98D4BC00D74845 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D37E7152F97BF0F00AF5CFF /* Project object */;
 }
