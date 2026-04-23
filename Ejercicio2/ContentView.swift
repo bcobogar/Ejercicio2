@@ -54,8 +54,27 @@ struct ContentView: View {
                         Text("corrrectoo").foregroundColor(.green)
                     }
                 }
+                
+                // listado de solicitudes
+                Section(header: Text("Mis solicitudes recientes")){
+                    // si esta vacia mostramos un mensaje
+                    if viewModel.listaSolicitudes.isEmpty{
+                        Text("Aun no tienes registros").foregroundColor(.gray)
+                    }else{
+                        // recorremos la lista y pintamos los datos de cada una
+                        ForEach(viewModel.listaSolicitudes, id: \.self){ solicitud in
+                            VStack(alignment: .leading){
+                                Text(solicitud.titulo)
+                                Text("Prioridad: \(solicitud.prioridad) - \(solicitud.categoria)").font(.caption).foregroundColor(.gray)
+                            }
+                        }
+                    }
+                }
             }
             .navigationTitle("Nuevo Registro")
+            .onAppear{
+                viewModel.descargarMisSolicitudes()
+            }
         }
     }
 }

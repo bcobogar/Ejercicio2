@@ -3,7 +3,7 @@ import Combine
 import Supabase
  
 // modelo
-struct Solicitud: Codable, Identifiable {
+struct Solicitud: Codable, Identifiable, Hashable {
     var id: Int?
     var titulo: String
     var descripcion: String
@@ -26,6 +26,9 @@ class SolicitudViewModel: ObservableObject {
     @Published var estaEnviando: Bool = false
     @Published var mensajeError: String? = nil
     @Published var envioExitoso: Bool = false
+    
+    // Lista para guardar lo que bajamos de la base de datos
+    @Published var listaSolicitudes: [Solicitud] = []
     
     // Opciones del selector
     let categoriasDisponibles = ["Soporte", "Sugerencia", "Queja", "Otros"]
@@ -79,6 +82,27 @@ class SolicitudViewModel: ObservableObject {
                     self.estaEnviando = false
                     self.mensajeError = "No hay conexion a internet"
                 }
+            }
+        }
+    }
+    
+    // Funcion para descargar la lista
+    func descargarMisSolicitudes(){
+        Task{
+            do{
+                // pedimos los datos y ordenamos por fecha descendente
+                let datos: [Solicitud] = try await clienteSupabase
+                    .from("solicitudes")
+                    .select()
+                    .order("createrd_at", ascending: false)
+                    .execute()
+                    .value
+                await MainActor.run{
+                    // Guardamos los datos para que la pantalla los pinte
+                    self.listaSolicitudes = datos
+                }
+            }catch{
+                print("Error al descargar: \(error)")
             }
         }
     }
