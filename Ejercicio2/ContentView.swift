@@ -34,15 +34,47 @@ struct ContentView: View {
                 
                 Section {
                     Button(action: {
-                        print("Pulsado el botón de enviar")
+                        viewModel.guardarEnNube()
                     }) {
-                        Text("Enviar solicitud")
-                            .bold()
+                        if viewModel.estaEnviando{
+                            Text("Enviando")
+                        }else{
+                            Text("Enviar solicitud")
+                        }
                     }
-                    .disabled(viewModel.isFormValid == false)
+                    .disabled(viewModel.isFormValid == false || viewModel.estaEnviando == true)
+                }
+                if let error = viewModel.mensajeError{
+                    Section{
+                        Text(error).foregroundColor(.red)
+                    }
+                }
+                if viewModel.envioExitoso{
+                    Section{
+                        Text("corrrectoo").foregroundColor(.green)
+                    }
+                }
+                
+                // listado de solicitudes
+                Section(header: Text("Mis solicitudes recientes")){
+                    // si esta vacia mostramos un mensaje
+                    if viewModel.listaSolicitudes.isEmpty{
+                        Text("Aun no tienes registros").foregroundColor(.gray)
+                    }else{
+                        // recorremos la lista y pintamos los datos de cada una
+                        ForEach(viewModel.listaSolicitudes, id: \.self){ solicitud in
+                            VStack(alignment: .leading){
+                                Text(solicitud.titulo)
+                                Text("Prioridad: \(solicitud.prioridad) - \(solicitud.categoria)").font(.caption).foregroundColor(.gray)
+                            }
+                        }
+                    }
                 }
             }
             .navigationTitle("Nuevo Registro")
+            .onAppear{
+                viewModel.descargarMisSolicitudes()
+            }
         }
     }
 }
