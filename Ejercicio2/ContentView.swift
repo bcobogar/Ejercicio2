@@ -18,10 +18,12 @@ struct ContentView: View {
                     
                     TextField("Tu correo email", text: $viewModel.email)
                         .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
                 }
                 
                 Section(header: Text("Detalles del ticket")) {
-                    TextField("Descripción (20 a 500 letras):", text: $viewModel.descripcion)
+                    Text("Descripcion (20 a 500)")
+                    TextEditor(text: $viewModel.descripcion).frame(height: 100)
                     
                     Picker("Categoría", selection: $viewModel.categoria) {
                         ForEach(viewModel.categoriasDisponibles, id: \.self) { opcion in
@@ -51,7 +53,7 @@ struct ContentView: View {
                 }
                 if viewModel.envioExitoso{
                     Section{
-                        Text("corrrectoo").foregroundColor(.green)
+                        Text("Enviado").foregroundColor(.green)
                     }
                 }
                 
@@ -62,10 +64,10 @@ struct ContentView: View {
                         Text("Aun no tienes registros").foregroundColor(.gray)
                     }else{
                         // recorremos la lista y pintamos los datos de cada una
-                        ForEach(viewModel.listaSolicitudes, id: \.self){ solicitud in
+                        ForEach(viewModel.listaSolicitudes, id: \.self){ Solicitud in
                             VStack(alignment: .leading){
-                                Text(solicitud.titulo)
-                                Text("Prioridad: \(solicitud.prioridad) - \(solicitud.categoria)").font(.caption).foregroundColor(.gray)
+                                Text(Solicitud.titulo)
+                                Text("Prioridad: \(Solicitud.prioridad) - \(Solicitud.categoria)").font(.caption).foregroundColor(.gray)
                             }
                         }
                     }
