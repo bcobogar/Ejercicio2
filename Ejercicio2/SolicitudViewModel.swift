@@ -52,8 +52,8 @@ class SolicitudViewModel: ObservableObject {
     
     // Puente de conexion
     let clienteSupabase = SupabaseClient(
-        supabaseURL: URL(string: "https://wadnittjqhpcpgypwgzs.supabase.co")!,
-        supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndhZG5pdHRqcWhwY3BneXB3Z3pzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NTQwMDYsImV4cCI6MjA5MjMzMDAwNn0.h7khwI5XROfX-X7jXSkJi2eSQaQ-lUnXpmms61yxXqk")
+        supabaseURL: URL(string: "Proyecto")!,
+        supabaseKey: "apikey")
     
     // Funcion para guardar los datos a supabase
     func guardarEnNube(){
