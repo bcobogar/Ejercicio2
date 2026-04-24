@@ -13,3 +13,9 @@ Una aplicación sencilla para iOS que permite enviar y gestionar tickets de sopo
 * **MVVM** Arquitectura del proyecto (Modelo-Vista-ViewModel).
 * **Supabase** Plataforma de base de datos.
 
+## Configuración
+1. Ve al archivo `SolicitudViewModel.swift`.
+2. Sustituye `Proyecto` y `apikey` por `https://wadnittjqhpcpgypwgzs.supabase.co` y `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndhZG5pdHRqcWhwY3BneXB3Z3pzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NTQwMDYsImV4cCI6MjA5MjMzMDAwNn0.h7khwI5XROfX-X7jXSkJi2eSQaQ-lUnXpmms61yxXqk
+
+## Enlace al video
+https://drive.google.com/file/d/1om0ArbVnI36g__bpuaNsb_IAvC11QTfQ/view?usp=sharing
