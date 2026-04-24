@@ -72,6 +72,8 @@ class SolicitudViewModel: ObservableObject {
                     self.estaEnviando = false
                     self.envioExitoso = true
                     
+                    self.descargarMisSolicitudes()
+                    
                     // borramos los textos para dejar el formulario limpio
                     self.titulo = ""
                     self.descripcion = ""
@@ -92,9 +94,9 @@ class SolicitudViewModel: ObservableObject {
             do{
                 // pedimos los datos y ordenamos por fecha descendente
                 let datos: [Solicitud] = try await clienteSupabase
-                    .from("solicitudes")
+                    .from("Solicitud")
                     .select()
-                    .order("createrd_at", ascending: false)
+                    .order("created_at", ascending: false)
                     .execute()
                     .value
                 await MainActor.run{
